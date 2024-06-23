@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:rescue_med_ambulance/Screens/login_page.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+void main() => runApp(MyApp());
 
+// ignore: use_key_in_widget_constructors
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp();
+    return  MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: LoginPage(),
+    );
   }
 }
