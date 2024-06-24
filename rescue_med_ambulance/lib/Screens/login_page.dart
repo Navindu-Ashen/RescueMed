@@ -18,7 +18,7 @@ class _LoginPageState extends State<LoginPage> {
 
     return Scaffold(body: SingleChildScrollView(
         child: LayoutBuilder(builder: (context, constraints) {
-      return Column(
+              return Column(
         children: [
           Padding(
             padding: EdgeInsets.only(top: screenSize.height * 0.08),
@@ -225,7 +225,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
           )
         ],
-      );
-    })));
+              );
+            })));
   }
 }
