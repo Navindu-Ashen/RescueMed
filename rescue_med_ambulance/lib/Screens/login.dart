@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:rescue_med_ambulance/Screens/signup_page.dart';
+
+final _firebase = FirebaseAuth.instance;
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -10,7 +12,46 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final _loginForm = GlobalKey<FormState>();
+  bool isAuthenticating = false;
   bool isObsecured = true;
+  var enteredEmail = "";
+  var enteredPassword = "";
+
+  void submit() async {
+    final isValid = _loginForm.currentState!.validate();
+    if (!isValid) {
+      return;
+    }
+
+    setState(() {
+      isAuthenticating = true;
+    });
+
+    FocusScope.of(context).unfocus();
+    _loginForm.currentState!.save();
+
+    try {
+      await _firebase.signInWithEmailAndPassword(
+          email: enteredEmail, password: enteredPassword);
+    } on FirebaseAuthException catch (error) {
+      // ignore: use_build_context_synchronously
+      ScaffoldMessenger.of(context).clearSnackBars();
+      // ignore: use_build_context_synchronously
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(error.message ?? "Signup faild"),
+        ),
+      );
+      setState(() {
+        isAuthenticating = false;
+      });
+      return;
+    }
+    setState(() {
+      isAuthenticating = false;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +59,7 @@ class _LoginPageState extends State<LoginPage> {
 
     return Scaffold(body: SingleChildScrollView(
         child: LayoutBuilder(builder: (context, constraints) {
-              return Column(
+      return Column(
         children: [
           Padding(
             padding: EdgeInsets.only(top: screenSize.height * 0.08),
@@ -51,11 +92,11 @@ class _LoginPageState extends State<LoginPage> {
               ],
             ),
             child: Padding(
-              padding: EdgeInsets.symmetric(
-                vertical: screenSize.height * 0.00,
-                horizontal: screenSize.width * 0.06,
+              padding: const EdgeInsets.symmetric(
+                horizontal: 16,
               ),
               child: Form(
+                key: _loginForm,
                 child: Column(
                   children: [
                     SizedBox(height: screenSize.height * 0.015),
@@ -115,6 +156,17 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                         filled: true,
                       ),
+                      onSaved: (value) {
+                        enteredEmail = value!;
+                      },
+                      validator: (value) {
+                        if (value == null ||
+                            value.trim().isEmpty ||
+                            !value.contains("@")) {
+                          return "Enter a valid email address";
+                        }
+                        return null;
+                      },
                     ),
                     SizedBox(height: screenSize.height * 0.01),
                     TextFormField(
@@ -148,6 +200,15 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                         filled: true,
                       ),
+                      onSaved: (value) {
+                        enteredPassword = value!;
+                      },
+                      validator: (value) {
+                        if (value == null || value.trim().isEmpty) {
+                          return "Enter a valid password";
+                        }
+                        return null;
+                      },
                     ),
                     SizedBox(height: screenSize.height * 0.02),
                     Row(
@@ -167,11 +228,12 @@ class _LoginPageState extends State<LoginPage> {
                       ],
                     ),
                     SizedBox(height: screenSize.height * 0.02),
+                    if(!isAuthenticating)
                     SizedBox(
                       height: screenSize.height * 0.065,
                       width: screenSize.width * 0.5,
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: submit,
                         style: ElevatedButton.styleFrom(
                           elevation: 8,
                           padding: EdgeInsets.all(screenSize.width * 0.03),
@@ -193,19 +255,31 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
                     ),
+                    if(isAuthenticating)
+                    SizedBox(
+                      height: screenSize.height * 0.065,
+                      width: screenSize.width * 0.5,
+                      child: ElevatedButton(
+                        onPressed: (){},
+                        style: ElevatedButton.styleFrom(
+                          elevation: 8,
+                          padding: EdgeInsets.all(screenSize.width * 0.03),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(50),
+                          ),
+                          backgroundColor: Colors.white,
+                        ),
+                        child: const Center(
+                          child: CircularProgressIndicator(color: Color.fromARGB(255, 3, 142, 185),)
+                        ),
+                      ),
+                    ),
                     SizedBox(height: screenSize.height * 0.02),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const SignupPage(),
-                              ),
-                            );
-                          },
+                          onTap: () {},
                           child: Text(
                             "Want to be a part of us?",
                             style: TextStyle(
@@ -225,7 +299,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
           )
         ],
-              );
-            })));
+      );
+    })));
   }
 }

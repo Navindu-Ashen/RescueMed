@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rescue_med_ambulance/Screens/help_page.dart';
+import 'package:rescue_med_ambulance/Screens/help.dart';
 
 class DetailsPage extends StatefulWidget {
   const DetailsPage({super.key});

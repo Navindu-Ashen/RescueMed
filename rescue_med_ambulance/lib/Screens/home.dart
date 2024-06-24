@@ -1,5 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:rescue_med_ambulance/Screens/help_page.dart';
+import 'package:rescue_med_ambulance/Screens/help.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -22,11 +23,11 @@ class _HomePageState extends State<HomePage> {
     var screenSize = MediaQuery.of(context).size;
     return Scaffold(
       body: Container(
-          width: screenSize.width,
-          height: screenSize.height,
-          color: Colors.white,
-          child: SingleChildScrollView(
-              child: LayoutBuilder(builder: (context, constraints) {
+        width: screenSize.width,
+        height: screenSize.height,
+        color: Colors.white,
+        child: SingleChildScrollView(
+          child: LayoutBuilder(builder: (context, constraints) {
             return Column(
               children: [
                 Padding(
@@ -505,13 +506,30 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ],
                       ),
-                      SizedBox(height: screenSize.height * 0.1),
+                      const SizedBox(
+                        height: 16,
+                      ),
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.red,
+                          foregroundColor: Colors.white,
+                        ),
+                        onPressed: () {
+                          FirebaseAuth.instance.signOut();
+                        },
+                        child: const Text("Log out"),
+                      ),
+                      const SizedBox(
+                        height: 32,
+                      ),
                     ],
                   ),
                 ),
               ],
             );
-          }))),
+          }),
+        ),
+      ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: const Color.fromARGB(255, 3, 142, 185),
         selectedItemColor: Colors.white,
