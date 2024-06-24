@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "573754594747",
+    "project_id": "rescuemed-90b7c",
+    "storage_bucket": "rescuemed-90b7c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:573754594747:android:9affb94288bba1ce9d609e",
+        "android_client_info": {
+          "package_name": "com.example.rescue_med_ambulance"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVjIPpzbNXjML85m7zoLeVID4wA_38FJM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
