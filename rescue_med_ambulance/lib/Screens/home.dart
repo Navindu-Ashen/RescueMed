@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:rescue_med_ambulance/Screens/details.dart';
 import 'package:rescue_med_ambulance/Screens/help.dart';
 import 'package:rescue_med_ambulance/widgets/Home/counter.dart';
 import 'package:rescue_med_ambulance/widgets/Home/emergency_card.dart';
@@ -17,7 +16,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
-
+  
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -34,7 +33,7 @@ class _HomePageState extends State<HomePage> {
         decoration: const BoxDecoration(
           color: Colors.white,
           image: DecorationImage(
-            image: AssetImage("assets/backdrop_2E.jpg"),
+            image: AssetImage("assets/backdrop_3.jpg"),
             fit: BoxFit.cover,
           ),
         ),

@@ -1,8 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class NewPatientButton extends StatelessWidget {
   const NewPatientButton({super.key});
-
 
   @override
   Widget build(BuildContext context) {
@@ -10,9 +11,9 @@ class NewPatientButton extends StatelessWidget {
     return Column(
       children: [
         GestureDetector(
-          onTap: (){},
+          onTap: () {},
           child: Container(
-            height: screenSize.height * 0.18,
+            height: 150,
             width: screenSize.width * 0.93,
             decoration: BoxDecoration(
               color: const Color.fromARGB(255, 3, 142, 185),
@@ -40,23 +41,48 @@ class NewPatientButton extends StatelessWidget {
                 SizedBox(width: screenSize.width * 0.095),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text(
-                      "New",
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 40,
-                          fontWeight: FontWeight.w600),
-                    ),
-                    const Text(
-                      "Patient",
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 30,
-                          fontWeight: FontWeight.w400),
-                    ),
+                    if (screenSize.width <= 640)
+                      const Text(
+                        "New",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 40,
+                            fontWeight: FontWeight.w600),
+                      ),
+                    if (screenSize.width <= 640)
+                      const Text(
+                        "Patient",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 30,
+                            fontWeight: FontWeight.w400),
+                      ),
+                    if (screenSize.width > 640)
+                      const Row(
+                        children: [
+                          Text(
+                            "New",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 40,
+                                fontWeight: FontWeight.w600),
+                          ),
+                          SizedBox(width: 16,),
+                          Text(
+                            "Patient",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 30,
+                                fontWeight: FontWeight.w400),
+                          ),
+                        ],
+                      ),
+                    if (screenSize.width > 640)
                     Image.asset(
                       'assets/logo_2_half.png',
+                      width: 60,
                     ),
                   ],
                 )

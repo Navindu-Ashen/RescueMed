@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class ProfileBar extends StatelessWidget {
   const ProfileBar({
@@ -32,29 +33,31 @@ class ProfileBar extends StatelessWidget {
               bottomRight: Radius.circular(15),
             ),
           ),
-          child: Column(
+          child: Row(
             children: [
-              Row(
-                children: [
-                  SizedBox(width: screenSize.width * 0.01),
-                  const CircleAvatar(
-                    radius: 34,
-                    backgroundImage: AssetImage('assets/mole.jpg'),
-                    backgroundColor: Colors.transparent,
-                  ),
-                  SizedBox(width: screenSize.width * 0.02),
-                  Padding(
-                    padding: EdgeInsets.all(screenSize.width * 0.01),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+              SizedBox(width: screenSize.width * 0.01),
+              const CircleAvatar(
+                radius: 30,
+                backgroundImage: AssetImage('assets/mole.jpg'),
+                backgroundColor: Colors.transparent,
+              ),
+              SizedBox(width: screenSize.width * 0.02),
+              SizedBox(
+                width: screenSize.width / 1.8,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Text(
+                      userName,
+                      style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 18.5,
+                          fontWeight: FontWeight.w600),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
-                          userName,
-                          style: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 18.5,
-                              fontWeight: FontWeight.w600),
-                        ),
                         Text(
                           ambulanceNo,
                           style: const TextStyle(
@@ -62,21 +65,17 @@ class ProfileBar extends StatelessWidget {
                               fontSize: 14,
                               fontWeight: FontWeight.w400),
                         ),
-                        Padding(
-                          padding:
-                              EdgeInsets.only(left: screenSize.width * 0.39),
-                          child: Text(
-                            crewNo,
-                            style: const TextStyle(
-                                color: Colors.white,
-                                fontSize: 14,
-                                fontWeight: FontWeight.w400),
-                          ),
+                        Text(
+                          crewNo,
+                          style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w400),
                         ),
                       ],
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ],
           ),
@@ -88,11 +87,12 @@ class ProfileBar extends StatelessWidget {
           decoration: BoxDecoration(
               color: const Color.fromARGB(255, 16, 98, 147),
               borderRadius: BorderRadius.circular(15)),
-          padding: EdgeInsets.all(screenSize.width * 0.025),
-          child: const Icon(
-            Icons.more_horiz_rounded,
-            size: 40,
-            color: Colors.white,
+          child: const Center(
+            child: Icon(
+              Icons.more_horiz_rounded,
+              size: 40,
+              color: Colors.white,
+            ),
           ),
         ),
       ],
