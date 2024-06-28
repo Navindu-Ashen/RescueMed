@@ -35,16 +35,12 @@ class NewPatientButton extends StatelessWidget {
             ),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Padding(
-                  padding: EdgeInsets.all(screenSize.width * 0.01),
-                  child: Image.asset(
-                    'assets/Doctor rushing to the patient.png',
-                    height: screenSize.height * 0.5,
-                    width: screenSize.width * 0.5,
-                  ),
+                Image.asset(
+                  'assets/Doctor rushing to the patient.png',
+                  width: 150,
                 ),
-                SizedBox(width: screenSize.width * 0.095),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -92,6 +88,14 @@ class NewPatientButton extends StatelessWidget {
                         "assets/logo_2_half.png",
                         width: 60,
                       ),
+                    if (screenSize.width <= 640)
+                      Image.asset(
+                        "assets/logo_2_half.png",
+                        width: 20,
+                      ),
+                    const SizedBox(
+                      height: 16,
+                    ),
                   ],
                 )
               ],

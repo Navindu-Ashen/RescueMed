@@ -30,7 +30,7 @@ class HospitalCard extends StatelessWidget {
             bottom: 0,
             child: Image.asset(
               'assets/img2.png',
-              height: screenSize.height * 0.18,
+              height: screenSize.height * 0.19,
               fit: BoxFit.cover,
             ),
           ),
@@ -55,7 +55,6 @@ class HospitalCard extends StatelessWidget {
                   ),
                   SizedBox(
                     width: screenWidth/2,
-                    height: screenWidth/8,
                     child: const Text(
                       "Access registered hospitals quickly and efficiently.",
                       textAlign: TextAlign.end,
@@ -68,9 +67,9 @@ class HospitalCard extends StatelessWidget {
                       maxLines: 2,
                     ),
                   ),
-                  SizedBox(height: screenSize.height * 0.01),
+                  const SizedBox(height: 20),
                   SizedBox(
-                    height: screenSize.height * 0.05,
+                    height: 42,
                     width: screenSize.width * 0.4,
                     child: ElevatedButton(
                       onPressed: () {
@@ -83,19 +82,19 @@ class HospitalCard extends StatelessWidget {
                       },
                       style: ElevatedButton.styleFrom(
                         elevation: 8,
-                        padding: EdgeInsets.all(screenSize.width * 0.025),
+                        padding: const EdgeInsets.all(8),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15),
                         ),
                         backgroundColor: const Color.fromARGB(255, 3, 142, 185),
                       ),
-                      child: Text(
+                      child: const Text(
                         "See all hospitals",
                         style: TextStyle(
                           letterSpacing: 1,
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
-                          fontSize: screenSize.width * 0.04,
+                          fontSize: 16,
                         ),
                       ),
                     ),

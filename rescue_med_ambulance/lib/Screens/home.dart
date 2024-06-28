@@ -88,21 +88,21 @@ class _HomePageState extends State<HomePage> {
                               },
                               child: Row(
                                 children: [
-                                  Text(
+                                  const Text(
                                     "Need Help?",
                                     style: TextStyle(
-                                      fontSize: screenSize.width * 0.04,
+                                      fontSize: 18,
                                       color: Colors.black,
                                       fontWeight: FontWeight.w500,
                                       letterSpacing: 0.5,
                                     ),
                                   ),
                                   SizedBox(width: screenSize.width * 0.02),
-                                  Text(
+                                  const Text(
                                     "Help section",
                                     style: TextStyle(
-                                      fontSize: screenSize.width * 0.04,
-                                      color: const Color.fromARGB(
+                                      fontSize: 18,
+                                      color: Color.fromARGB(
                                           255, 255, 114, 114),
                                       fontWeight: FontWeight.w500,
                                       letterSpacing: 0.5,

@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:rescue_med_ambulance/Screens/forget_password.dart';
+import 'package:rescue_med_ambulance/main.dart';
 
 final _firebase = FirebaseAuth.instance;
 
@@ -13,14 +14,14 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final _loginForm = GlobalKey<FormState>();
+  final _passwordResetForm = GlobalKey<FormState>();
   bool isAuthenticating = false;
   bool isObsecured = true;
   var enteredEmail = "";
   var enteredPassword = "";
 
   void submit() async {
-    final isValid = _loginForm.currentState!.validate();
+    final isValid = _passwordResetForm.currentState!.validate();
     if (!isValid) {
       return;
     }
@@ -30,7 +31,7 @@ class _LoginPageState extends State<LoginPage> {
     });
 
     FocusScope.of(context).unfocus();
-    _loginForm.currentState!.save();
+    _passwordResetForm.currentState!.save();
 
     try {
       await _firebase.signInWithEmailAndPassword(
@@ -52,6 +53,17 @@ class _LoginPageState extends State<LoginPage> {
     setState(() {
       isAuthenticating = false;
     });
+    Navigator.pushAndRemoveUntil(
+      context,
+      MaterialPageRoute(
+        builder: (BuildContext context) {
+          return MyApp();
+        },
+      ),
+      (r) {
+        return false;
+      },
+    );
   }
 
   @override
@@ -107,7 +119,7 @@ class _LoginPageState extends State<LoginPage> {
                     horizontal: 16,
                   ),
                   child: Form(
-                    key: _loginForm,
+                    key: _passwordResetForm,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [

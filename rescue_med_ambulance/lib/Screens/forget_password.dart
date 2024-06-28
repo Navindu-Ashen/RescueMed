@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:rescue_med_ambulance/Screens/login.dart';
 
@@ -9,6 +10,107 @@ class ForgetPasswordPage extends StatefulWidget {
 }
 
 class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
+  final _resetPasswordForm = GlobalKey<FormState>();
+  var enteredEmail = "";
+  bool isSendingEmail = false;
+
+  Future resetPassword(double width, double height) async {
+    final isValid = _resetPasswordForm.currentState!.validate();
+    if (!isValid) {
+      return;
+    }
+    _resetPasswordForm.currentState!.save();
+    FocusScope.of(context).unfocus();
+
+    setState(() {
+      isSendingEmail = true;
+    });
+    try {
+      await FirebaseAuth.instance.sendPasswordResetEmail(email: enteredEmail);
+      showMsg(
+        width,
+        height,
+        "Password reset link has been sent to your email.",
+        "Check your email for reset password.",
+      );
+    } on FirebaseAuthException catch (e) {
+      showMsg(
+        width,
+        height,
+        e.message.toString(),
+        "Sorry try again!",
+      );
+    }
+    setState(() {
+      isSendingEmail = false;
+    });
+  }
+
+  void showMsg(
+    double width,
+    double height,
+    String messageTitle,
+    String messageData,
+  ) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(15),
+          ),
+          backgroundColor: Colors.white,
+          title: Text(
+            messageTitle,
+            style: const TextStyle(
+              color: Color.fromARGB(255, 16, 98, 147),
+              fontWeight: FontWeight.bold,
+              fontSize: 20.5,
+              letterSpacing: 0.5,
+            ),
+            textAlign: TextAlign.center,
+          ),
+          content: Text(
+            messageData,
+            style: const TextStyle(
+              color: Color.fromARGB(255, 16, 98, 147),
+              fontSize: 16,
+              fontWeight: FontWeight.w500,
+            ),
+            textAlign: TextAlign.center,
+          ),
+          actions: [
+            Center(
+              child: SizedBox(
+                height: height,
+                width: width,
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  style: TextButton.styleFrom(
+                    backgroundColor: const Color.fromARGB(255, 16, 98, 147),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
+                  child: const Text(
+                    "Done",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
@@ -65,6 +167,7 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
                     horizontal: 16,
                   ),
                   child: Form(
+                    key: _resetPasswordForm,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -125,119 +228,74 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
                             ),
                             filled: true,
                           ),
+                          onSaved: (value) {
+                            enteredEmail = value!;
+                          },
+                          validator: (value) {
+                            if (value == null ||
+                                value.trim().isEmpty ||
+                                !value.trim().contains("@")) {
+                              return "Enter a valid email address";
+                            }
+                            return null;
+                          },
                         ),
                         SizedBox(height: screenSize.height * 0.05),
-
-                        SizedBox(
-                          height: screenSize.height * 0.065,
-                          width: screenSize.width * 0.5,
-                          child: ElevatedButton(
-                            onPressed: () {
-                              showDialog(
-                                context: context,
-                                builder: (BuildContext context) {
-                                  return AlertDialog(
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(15),
-                                    ),
-                                    backgroundColor: Colors.white,
-                                    title: const Text(
-                                      "Password reset link has been sent to your registered email.",
-                                      style: TextStyle(
-                                        color: Color.fromARGB(255, 16, 98, 147),
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 20.5,
-                                        letterSpacing: 0.5,
-                                      ),
-                                      textAlign: TextAlign.center,
-                                    ),
-                                    content: const Text(
-                                      "Check your email for reset password.",
-                                      style: TextStyle(
-                                        color: Color.fromARGB(255, 16, 98, 147),
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                      textAlign: TextAlign.center,
-                                    ),
-                                    actions: [
-                                      Center(
-                                        child: SizedBox(
-                                          height: screenSize.height * 0.045,
-                                          width: screenSize.width * 0.25,
-                                          child: TextButton(
-                                            onPressed: () {
-                                              Navigator.of(context).pop();
-                                            },
-                                            style: TextButton.styleFrom(
-                                              backgroundColor:
-                                                  const Color.fromARGB(
-                                                      255, 16, 98, 147),
-                                              shape: RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(10),
-                                              ),
-                                            ),
-                                            child: const Text(
-                                              "Done",
-                                              style: TextStyle(
-                                                color: Colors.white,
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 18,
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  );
-                                },
-                              );
-                            },
-                            style: ElevatedButton.styleFrom(
-                              elevation: 8,
-                              padding: const EdgeInsets.all(8),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(50),
+                        if (!isSendingEmail)
+                          SizedBox(
+                            height: screenSize.height * 0.065,
+                            width: screenSize.width * 0.5,
+                            child: ElevatedButton(
+                              onPressed: () {
+                                resetPassword(screenSize.width * 0.25,
+                                    screenSize.height * 0.045);
+                              },
+                              style: ElevatedButton.styleFrom(
+                                elevation: 8,
+                                padding: const EdgeInsets.all(8),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(50),
+                                ),
+                                backgroundColor: Colors.white,
                               ),
-                              backgroundColor: Colors.white,
-                            ),
-                            child: const Center(
-                              child: Text(
-                                "SEND LINK",
-                                style: TextStyle(
-                                  letterSpacing: 1.7,
-                                  color: Color.fromARGB(255, 3, 142, 185),
-                                  fontWeight: FontWeight.w800,
-                                  fontSize: 24,
+                              child: const Center(
+                                child: Text(
+                                  "SEND LINK",
+                                  style: TextStyle(
+                                    letterSpacing: 1.7,
+                                    color: Color.fromARGB(255, 3, 142, 185),
+                                    fontWeight: FontWeight.w800,
+                                    fontSize: 24,
+                                  ),
                                 ),
                               ),
                             ),
                           ),
-                        ),
-                        // SizedBox(
-                        //   height: screenSize.height * 0.065,
-                        //   width: screenSize.width * 0.5,
-                        //   child: ElevatedButton(
-                        //     onPressed: () {},
-                        //     style: ElevatedButton.styleFrom(
-                        //       elevation: 8,
-                        //       padding: EdgeInsets.all(screenSize.width * 0.03),
-                        //       shape: RoundedRectangleBorder(
-                        //         borderRadius: BorderRadius.circular(50),
-                        //       ),
-                        //       backgroundColor: Colors.white,
-                        //     ),
-                        //     child: const SizedBox(
-                        //       width: 20,
-                        //       height: 20,
-                        //       child: Center(
-                        //           child: CircularProgressIndicator(
-                        //         color: Color.fromARGB(255, 3, 142, 185),
-                        //       )),
-                        //     ),
-                        //   ),
-                        // ),
+                        if (isSendingEmail)
+                          SizedBox(
+                            height: screenSize.height * 0.065,
+                            width: screenSize.width * 0.5,
+                            child: ElevatedButton(
+                              onPressed: () {},
+                              style: ElevatedButton.styleFrom(
+                                elevation: 8,
+                                padding:
+                                    EdgeInsets.all(screenSize.width * 0.03),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(50),
+                                ),
+                                backgroundColor: Colors.white,
+                              ),
+                              child: const SizedBox(
+                                width: 20,
+                                height: 20,
+                                child: Center(
+                                    child: CircularProgressIndicator(
+                                  color: Color.fromARGB(255, 3, 142, 185),
+                                )),
+                              ),
+                            ),
+                          ),
                         SizedBox(height: screenSize.height * 0.06),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,

@@ -30,7 +30,7 @@ class EmergencyCard extends StatelessWidget {
             bottom: 0,
             child: Image.asset(
               'assets/img1.png',
-              height: screenSize.height * 0.18,
+              height: screenSize.height * 0.19,
               fit: BoxFit.cover,
             ),
           ),
@@ -55,7 +55,6 @@ class EmergencyCard extends StatelessWidget {
                   ),
                   SizedBox(
                     width: screenWidth / 2,
-                    height: screenWidth / 8,
                     child: const Text(
                       "Ensure efficient response to urgent medical needs.",
                       textAlign: TextAlign.start,
@@ -68,10 +67,10 @@ class EmergencyCard extends StatelessWidget {
                       maxLines: 2,
                     ),
                   ),
-                  SizedBox(height: screenSize.height * 0.01),
+                  const SizedBox(height: 20),
                   SizedBox(
-                    height: screenSize.height * 0.05,
-                    width: screenSize.width * 0.45,
+                    height: 42,
+                    width: screenSize.width * 0.4,
                     child: ElevatedButton(
                       onPressed: () {
                         Navigator.push(
@@ -83,19 +82,20 @@ class EmergencyCard extends StatelessWidget {
                       },
                       style: ElevatedButton.styleFrom(
                         elevation: 8,
-                        padding: EdgeInsets.all(screenSize.width * 0.025),
+                        padding: const EdgeInsets.all(8),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15),
                         ),
                         backgroundColor: const Color.fromARGB(255, 3, 142, 185),
                       ),
-                      child: Text(
+                      child: const Text(
                         "See all situations",
+
                         style: TextStyle(
                           letterSpacing: 1,
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
-                          fontSize: screenSize.width * 0.04,
+                          fontSize: 16,
                         ),
                       ),
                     ),

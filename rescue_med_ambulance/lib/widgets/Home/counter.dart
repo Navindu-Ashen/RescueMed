@@ -26,39 +26,36 @@ class Counter extends StatelessWidget {
               ),
             ],
           ),
-          child: Column(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Row(
-                children: [
-                  Image.asset(
-                    "assets/Screenshot_2024-06-23_233150-transformedE 1.png",
-                    height: screenSize.height * 0.09,
-                    fit: BoxFit.cover,
-                  ),
-                  SizedBox(width: screenSize.width * 0.07),
-                  Padding(
-                    padding: EdgeInsets.all(screenSize.width * 0.01),
-                    child: const Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        Text(
-                          "Successful",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 23,
-                              fontWeight: FontWeight.w700),
-                        ),
-                        Text(
-                          "Travels",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 22,
-                              fontWeight: FontWeight.w700),
-                        ),
-                      ],
+              Image.asset(
+                "assets/Screenshot_2024-06-23_233150-transformedE 1.png",
+                height: 100,
+                fit: BoxFit.cover,
+              ),
+              const Padding(
+                padding: EdgeInsets.only(right: 16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Successful",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 23,
+                          fontWeight: FontWeight.w700),
                     ),
-                  ),
-                ],
+                    Text(
+                      "Travels",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 22,
+                          fontWeight: FontWeight.w700),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
