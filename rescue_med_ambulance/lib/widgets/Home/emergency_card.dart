@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rescue_med_ambulance/Screens/emergency_situations.dart';
 
 class EmergencyCard extends StatelessWidget {
   const EmergencyCard({super.key});
@@ -56,7 +57,7 @@ class EmergencyCard extends StatelessWidget {
                     width: screenWidth / 2,
                     height: screenWidth / 8,
                     child: const Text(
-                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                      "Ensure efficient response to urgent medical needs.",
                       textAlign: TextAlign.start,
                       style: TextStyle(
                         color: Colors.white,
@@ -70,9 +71,16 @@ class EmergencyCard extends StatelessWidget {
                   SizedBox(height: screenSize.height * 0.01),
                   SizedBox(
                     height: screenSize.height * 0.05,
-                    width: screenSize.width * 0.4,
+                    width: screenSize.width * 0.45,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  const EmergencySituations()),
+                        );
+                      },
                       style: ElevatedButton.styleFrom(
                         elevation: 8,
                         padding: EdgeInsets.all(screenSize.width * 0.025),
@@ -82,7 +90,7 @@ class EmergencyCard extends StatelessWidget {
                         backgroundColor: const Color.fromARGB(255, 3, 142, 185),
                       ),
                       child: Text(
-                        "See all hospitals",
+                        "See all situations",
                         style: TextStyle(
                           letterSpacing: 1,
                           color: Colors.white,

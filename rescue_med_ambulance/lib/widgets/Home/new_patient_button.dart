@@ -18,12 +18,18 @@ class NewPatientButton extends StatelessWidget {
             decoration: BoxDecoration(
               color: const Color.fromARGB(255, 3, 142, 185),
               borderRadius: BorderRadius.circular(15),
-              boxShadow: [
+              boxShadow: const [
                 BoxShadow(
-                  color: const Color.fromARGB(255, 52, 52, 52).withOpacity(0.4),
-                  offset: const Offset(0, 5),
-                  blurRadius: 10,
-                  spreadRadius: 1,
+                  color: Color.fromARGB(255, 208, 226, 232),
+                  offset: Offset(-0.8, -1.5),
+                  blurRadius: 1,
+                  spreadRadius: 2,
+                ),
+                BoxShadow(
+                  color: Color.fromARGB(255, 60, 60, 60),
+                  offset: Offset(0.8, 1.5),
+                  blurRadius: 2,
+                  spreadRadius: 2,
                 ),
               ],
             ),
@@ -91,7 +97,7 @@ class NewPatientButton extends StatelessWidget {
               ],
             ),
           ),
-        )
+        ),
       ],
     );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rescue_med_ambulance/Screens/registered_hospitals.dart';
 
 class HospitalCard extends StatelessWidget {
   const HospitalCard({super.key});
@@ -56,7 +57,7 @@ class HospitalCard extends StatelessWidget {
                     width: screenWidth/2,
                     height: screenWidth/8,
                     child: const Text(
-                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                      "Access registered hospitals quickly and efficiently.",
                       textAlign: TextAlign.end,
                       style: TextStyle(
                         color: Colors.white,
@@ -72,7 +73,14 @@ class HospitalCard extends StatelessWidget {
                     height: screenSize.height * 0.05,
                     width: screenSize.width * 0.4,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const RegisteredHospitals()),
+                                );
+                      },
                       style: ElevatedButton.styleFrom(
                         elevation: 8,
                         padding: EdgeInsets.all(screenSize.width * 0.025),
