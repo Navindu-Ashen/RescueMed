@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:rescue_med_ambulance/Screens/forget_password.dart';
 
 final _firebase = FirebaseAuth.instance;
 
@@ -82,6 +83,9 @@ class _LoginPageState extends State<LoginPage> {
                 'assets/login_main.png',
                 height: screenSize.width * 0.5,
               ),
+              SizedBox(
+                height: screenSize.height * 0.03,
+              ),
               Container(
                 decoration: const BoxDecoration(
                   color: Color.fromARGB(255, 3, 142, 185),
@@ -134,10 +138,10 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                         SizedBox(height: screenSize.height * 0.02),
                         const Text(
-                          "Lorem ipsum dolor sit amet,",
+                          "Welcome to Your Dedicated Health Ally!",
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            fontSize: 22,
+                            fontSize: 19,
                             fontWeight: FontWeight.w500,
                             letterSpacing: 1,
                             color: Colors.white,
@@ -223,7 +227,14 @@ class _LoginPageState extends State<LoginPage> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             GestureDetector(
-                              onTap: () {},
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const ForgetPasswordPage()),
+                                );
+                              },
                               child: const Text(
                                 "Forgot Password?",
                                 style: TextStyle(
@@ -288,7 +299,7 @@ class _LoginPageState extends State<LoginPage> {
                               ),
                             ),
                           ),
-                        SizedBox(height: screenSize.height * 0.02),
+                        SizedBox(height: screenSize.height * 0.03),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -297,16 +308,16 @@ class _LoginPageState extends State<LoginPage> {
                               child: const Text(
                                 "Want to be a part of us?",
                                 style: TextStyle(
-                                  fontSize: 18,
+                                  fontSize: 17,
                                   color: Colors.white,
-                                  fontWeight: FontWeight.w600,
+                                  fontWeight: FontWeight.w500,
                                   letterSpacing: 0.5,
                                 ),
                               ),
                             ),
                           ],
                         ),
-                        SizedBox(height: screenSize.height * 0.03),
+                        SizedBox(height: screenSize.height * 0.06),
                       ],
                     ),
                   ),

@@ -69,7 +69,9 @@ class NewPatientButton extends StatelessWidget {
                                 fontSize: 40,
                                 fontWeight: FontWeight.w600),
                           ),
-                          SizedBox(width: 16,),
+                          SizedBox(
+                            width: 16,
+                          ),
                           Text(
                             "Patient",
                             style: TextStyle(
@@ -80,10 +82,10 @@ class NewPatientButton extends StatelessWidget {
                         ],
                       ),
                     if (screenSize.width > 640)
-                    Image.asset(
-                      'assets/logo_2_half.png',
-                      width: 60,
-                    ),
+                      Image.asset(
+                        "assets/logo_2_half.png",
+                        width: 60,
+                      ),
                   ],
                 )
               ],
