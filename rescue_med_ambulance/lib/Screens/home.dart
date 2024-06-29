@@ -91,7 +91,7 @@ class _HomePageState extends State<HomePage> {
                                   const Text(
                                     "Need Help?",
                                     style: TextStyle(
-                                      fontSize: 18,
+                                      fontSize: 16,
                                       color: Colors.black,
                                       fontWeight: FontWeight.w500,
                                       letterSpacing: 0.5,
@@ -101,7 +101,7 @@ class _HomePageState extends State<HomePage> {
                                   const Text(
                                     "Help section",
                                     style: TextStyle(
-                                      fontSize: 18,
+                                      fontSize: 16,
                                       color: Color.fromARGB(
                                           255, 255, 114, 114),
                                       fontWeight: FontWeight.w500,

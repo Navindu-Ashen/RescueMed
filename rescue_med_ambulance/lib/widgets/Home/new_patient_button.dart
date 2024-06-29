@@ -1,9 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:rescue_med_ambulance/Screens/emergency_situations.dart';
 
 class NewPatientButton extends StatelessWidget {
-  const NewPatientButton({super.key});
+  const NewPatientButton({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +12,13 @@ class NewPatientButton extends StatelessWidget {
     return Column(
       children: [
         GestureDetector(
-          onTap: () {},
+          onTap: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (ctx) => const EmergencySituations(),
+              ),
+            );
+          },
           child: Container(
             height: 150,
             width: screenSize.width * 0.93,
@@ -20,16 +27,14 @@ class NewPatientButton extends StatelessWidget {
               borderRadius: BorderRadius.circular(15),
               boxShadow: const [
                 BoxShadow(
-                  color: Color.fromARGB(255, 208, 226, 232),
-                  offset: Offset(-0.8, -1.5),
-                  blurRadius: 1,
-                  spreadRadius: 2,
+                  color: Color.fromARGB(255, 255, 255, 255),
+                  offset: Offset(0, -5),
+                  blurRadius: 5,
                 ),
                 BoxShadow(
-                  color: Color.fromARGB(255, 60, 60, 60),
-                  offset: Offset(0.8, 1.5),
-                  blurRadius: 2,
-                  spreadRadius: 2,
+                  color: Colors.grey,
+                  offset: Offset(0, 5),
+                  blurRadius: 5,
                 ),
               ],
             ),

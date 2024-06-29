@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:rescue_med_ambulance/Screens/details.dart';
-import 'package:rescue_med_ambulance/Widgets/Emergencies/accident.dart';
-import 'package:rescue_med_ambulance/Widgets/Emergencies/heart_attack.dart';
-import 'package:rescue_med_ambulance/Widgets/Emergencies/others.dart';
-import 'package:rescue_med_ambulance/Widgets/Emergencies/pregnancy.dart';
-import 'package:rescue_med_ambulance/Widgets/Emergencies/respiratory.dart';
+import 'package:rescue_med_ambulance/widgets/Emergencies/action_card.dart';
+import 'package:rescue_med_ambulance/widgets/Emergencies/action_card_2.dart';
 
 class EmergencySituations extends StatefulWidget {
   const EmergencySituations({super.key});
@@ -118,37 +114,58 @@ class _EmergencySituationsState extends State<EmergencySituations> {
                         ),
                         SizedBox(height: screenSize.height * 0.04),
                         Container(
-                          height: screenSize.height * 0.55,
+                          height: 450,
                           width: screenSize.width * 0.9,
                           decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(15)),
-                          padding: EdgeInsets.all(screenSize.width * 0.1),
+                          padding: const EdgeInsets.all(16),
                           child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               const Row(
                                 mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                    MainAxisAlignment.spaceEvenly,
                                 children: [
-                                  Pregnancy(),
-                                  HeartAttack(),
+                                  ActionCard(
+                                    forwardPage: DetailsPage(),
+                                    imagePath: "assets/pregnant 1.png",
+                                    tite: "Pregnancy",
+                                  ),
+                                  ActionCard(
+                                    forwardPage: DetailsPage(),
+                                    imagePath: "assets/cardiogram 1.png",
+                                    tite: "Cardiact",
+                                  ),
                                 ],
                               ),
                               SizedBox(height: screenSize.height * 0.045),
                               const Row(
                                 mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                    MainAxisAlignment.spaceEvenly,
                                 children: [
-                                  Respiratory(),
-                                  Accident(),
+                                  ActionCard(
+                                    forwardPage: DetailsPage(),
+                                    imagePath: "assets/oxygen 1.png",
+                                    tite: "Respiratory",
+                                  ),
+                                  ActionCard(
+                                    forwardPage: DetailsPage(),
+                                    imagePath: "assets/accident 1.png",
+                                    tite: "Accident",
+                                  ),
                                 ],
                               ),
                               SizedBox(height: screenSize.height * 0.045),
-                              const Others(),
+                              const ActionCard2(
+                                forwardPage: DetailsPage(),
+                                imagePath: "assets/more.png",
+                                tite: "Other",
+                              ),
                             ],
                           ),
                         ),
-                        SizedBox(height: screenSize.height * 0.1),
+                        const SizedBox(height: 16),
                       ],
                     ),
                   ),

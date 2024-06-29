@@ -72,14 +72,7 @@ class EmergencyCard extends StatelessWidget {
                     height: 42,
                     width: screenSize.width * 0.4,
                     child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>
-                                  const EmergencySituations()),
-                        );
-                      },
+                      onPressed: () {},
                       style: ElevatedButton.styleFrom(
                         elevation: 8,
                         padding: const EdgeInsets.all(8),
