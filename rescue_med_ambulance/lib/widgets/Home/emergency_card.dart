@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rescue_med_ambulance/Screens/emergency_list.dart';
 
 class EmergencyCard extends StatelessWidget {
   const EmergencyCard({super.key});
@@ -71,7 +72,14 @@ class EmergencyCard extends StatelessWidget {
                     height: 42,
                     width: screenSize.width * 0.4,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () { 
+                         Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const EmergencyList(),
+                          ),
+                        );
+                      },
                       style: ElevatedButton.styleFrom(
                         elevation: 8,
                         padding: const EdgeInsets.all(8),

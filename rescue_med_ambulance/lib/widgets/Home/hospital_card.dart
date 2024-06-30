@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rescue_med_ambulance/Screens/hospitals_list.dart';
 import 'package:rescue_med_ambulance/Screens/registered_hospitals.dart';
 
 class HospitalCard extends StatelessWidget {
@@ -54,7 +55,7 @@ class HospitalCard extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    width: screenWidth/2,
+                    width: screenWidth / 2,
                     child: const Text(
                       "Access registered hospitals quickly and efficiently.",
                       textAlign: TextAlign.end,
@@ -72,7 +73,14 @@ class HospitalCard extends StatelessWidget {
                     height: 42,
                     width: screenSize.width * 0.4,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const HospitalsList(),
+                          ),
+                        );
+                      },
                       style: ElevatedButton.styleFrom(
                         elevation: 8,
                         padding: const EdgeInsets.all(8),
