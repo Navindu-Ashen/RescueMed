@@ -3,14 +3,14 @@ import 'package:rescue_med_ambulance/Screens/details.dart';
 import 'package:rescue_med_ambulance/widgets/Emergencies/action_card.dart';
 import 'package:rescue_med_ambulance/widgets/Emergencies/action_card_2.dart';
 
-class EmergencySituations extends StatefulWidget {
-  const EmergencySituations({super.key});
+class NewPatient extends StatefulWidget {
+  const NewPatient({super.key});
 
   @override
-  State<EmergencySituations> createState() => _EmergencySituationsState();
+  State<NewPatient> createState() => _NewPatientState();
 }
 
-class _EmergencySituationsState extends State<EmergencySituations> {
+class _NewPatientState extends State<NewPatient> {
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
@@ -165,7 +165,7 @@ class _EmergencySituationsState extends State<EmergencySituations> {
                             ],
                           ),
                         ),
-                        const SizedBox(height: 16),
+                        const SizedBox(height: 60),
                       ],
                     ),
                   ),

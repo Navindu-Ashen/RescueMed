@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:rescue_med_ambulance/Screens/emergency_situations.dart';
 
 class EmergencyCard extends StatelessWidget {
   const EmergencyCard({super.key});

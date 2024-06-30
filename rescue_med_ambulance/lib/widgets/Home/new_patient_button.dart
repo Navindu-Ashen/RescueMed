@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rescue_med_ambulance/Screens/emergency_situations.dart';
+import 'package:rescue_med_ambulance/Screens/new_patient.dart';
 
 class NewPatientButton extends StatelessWidget {
   const NewPatientButton({
@@ -15,7 +15,7 @@ class NewPatientButton extends StatelessWidget {
           onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
-                builder: (ctx) => const EmergencySituations(),
+                builder: (ctx) => const NewPatient(),
               ),
             );
           },
