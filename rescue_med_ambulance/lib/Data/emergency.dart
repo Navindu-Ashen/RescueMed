@@ -5,24 +5,24 @@ final List<Emergency> emergencies = [
     name: 'Pregnancy',
     imagePath: "assets/pregnant 2.png",
     about:
-        "If your baby is coming and you can't make it to the hospital, call 911 as soonas you can.Then remove your pantsand underwear Lie down or sit propperly",
+        "If your baby is coming and you can't make it to the hospital, call 911 as soonas you can.",
   ),
   Emergency(
     name: 'Heart attack',
     imagePath: "assets/cardiogram 2.png",
     about:
-        "If your baby is coming and you can't make it to the hospital, call 911 as soonas you can.Then remove your pantsand underwear Lie down or sit propperly",
+        "If your baby is coming and you can't make it to the hospital, call 911 as soonas you can.",
   ),
   Emergency(
     name: 'Respiratory',
     imagePath: "assets/oxygen 2.png",
     about:
-        "If your baby is coming and you can't make it to the hospital, call 911 as soonas you can.Then remove your pantsand underwear Lie down or sit propperly",
+        "If your baby is coming and you can't make it to the hospital, call 911 as soonas you can.",
   ),
   Emergency(
     name: 'Accident',
     imagePath: "assets/accident 2.png",
     about:
-        "If your baby is coming and you can't make it to the hospital, call 911 as soonas you can.Then remove your pantsand underwear Lie down or sit propperly",
+        "If your baby is coming and you can't make it to the hospital, call 911 as soonas you can.",
   ),
 ];

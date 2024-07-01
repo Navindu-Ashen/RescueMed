@@ -5,12 +5,14 @@ import 'package:rescue_med_ambulance/Screens/emergency_details.dart';
 
 class EmergencyList extends StatefulWidget {
   const EmergencyList({super.key});
+  
 
   @override
   State<EmergencyList> createState() => _EmergencyListState();
 }
 
 class _EmergencyListState extends State<EmergencyList> {
+  
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
@@ -98,7 +100,7 @@ class _EmergencyListState extends State<EmergencyList> {
                                     },
                                     child: Container(
                                       margin: const EdgeInsets.fromLTRB(
-                                          15, 10, 5, 0),
+                                          15, 10, 15, 0),
                                       height: screenSize.height * 0.175,
                                       width: screenSize.width * 0.92,
                                       decoration: const BoxDecoration(
@@ -169,6 +171,7 @@ class _EmergencyListState extends State<EmergencyList> {
                                                                               .width *
                                                                           0.5,
                                                                 ),
+                                                                
                                                                 child: Text(
                                                                   dummydata2
                                                                       .about,
@@ -181,7 +184,7 @@ class _EmergencyListState extends State<EmergencyList> {
                                                                             79,
                                                                             79),
                                                                     fontSize:
-                                                                        13,
+                                                                        14,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w500,

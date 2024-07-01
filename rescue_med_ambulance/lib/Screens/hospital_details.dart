@@ -18,7 +18,7 @@ class _HospitalDetailsState extends State<HospitalDetails> {
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: const Color.fromARGB(255, 16, 98, 147),
       body: SafeArea(
         child: Stack(
           children: [
@@ -26,6 +26,7 @@ class _HospitalDetailsState extends State<HospitalDetails> {
               widget.dummydata.imagePath,
               width: double.infinity,
               alignment: Alignment.topCenter,
+              fit: BoxFit.cover,
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),

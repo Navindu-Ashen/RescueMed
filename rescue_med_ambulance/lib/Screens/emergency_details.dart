@@ -18,7 +18,7 @@ class _EmergencyDetailsState extends State<EmergencyDetails> {
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: const Color.fromARGB(255, 16, 98, 147),
       body: SafeArea(
         child: Stack(
           children: [
@@ -27,9 +27,11 @@ class _EmergencyDetailsState extends State<EmergencyDetails> {
               child: Column(
                 children: [
                   Image.asset(
+                    //"assets/pregnant big.png",
                     widget.dummydata2.imagePath,
-                    width: double.infinity,
-                    //alignment: Alignment.topCenter,
+                     width: double.infinity,
+                    //fit: BoxFit.cover,
+                    // alignment: Alignment.topCenter,
                   ),
                   Text(
                     widget.dummydata2.name,

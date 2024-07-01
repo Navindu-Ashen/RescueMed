@@ -99,14 +99,16 @@ class _HospitalsListState extends State<HospitalsList> {
                                     ),
                                     child: Row(
                                       children: [
-                                        SizedBox(
-                                            width: screenSize.width * 0.02),
-                                        Image.asset(
-                                          dummydata.imagePath,
-                                          width: screenSize.width * 0.27,
+                                        Padding(
+                                          padding: EdgeInsets.all(
+                                              screenSize.width * 0.01),
+                                          child: Image.asset(
+                                            dummydata.imagePath,
+                                            width: screenSize.width * 0.3,
+                                          ),
                                         ),
-                                        SizedBox(
-                                            width: screenSize.width * 0.001),
+                                        // SizedBox(
+                                        //     width: screenSize.width * 0.001),
                                         SizedBox(
                                           width: screenSize.width / 1.7,
                                           child: Padding(
@@ -273,8 +275,10 @@ class _HospitalsListState extends State<HospitalsList> {
                                                                 MaterialPageRoute(
                                                                   builder:
                                                                       (context) =>
-                                                                           HospitalDetails(dummydata: hospitals[index], 
-                                                                    
+                                                                          HospitalDetails(
+                                                                    dummydata:
+                                                                        hospitals[
+                                                                            index],
                                                                   ),
                                                                 ),
                                                               );
@@ -292,6 +296,16 @@ class _HospitalsListState extends State<HospitalsList> {
                                                                     BorderRadius
                                                                         .circular(
                                                                             10),
+                                                                side:
+                                                                    const BorderSide(
+                                                                  color: Color
+                                                                      .fromARGB(
+                                                                          255,
+                                                                          16,
+                                                                          98,
+                                                                          147),
+                                                                  width: 2,
+                                                                ),
                                                               ),
                                                               backgroundColor:
                                                                   Colors.white,
