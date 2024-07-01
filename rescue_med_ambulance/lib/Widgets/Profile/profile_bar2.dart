@@ -6,8 +6,10 @@ class ProfileBar2 extends StatelessWidget {
     super.key,
     required this.ambulanceNo,
     required this.crewNo,
+    required this.username,
   });
 
+  final String username;
   final String ambulanceNo;
   final String crewNo;
 
@@ -15,16 +17,23 @@ class ProfileBar2 extends StatelessWidget {
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
     return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Container(
           height: screenSize.height * 0.15,
-          width: screenSize.width * 0.92,
+          width: screenSize.width * 0.91,
           decoration: const BoxDecoration(
-            color: Colors.white,
+            color: Color.fromARGB(255, 3, 142, 185),
             borderRadius: BorderRadius.all(
               Radius.circular(15),
             ),
+            boxShadow: [
+              BoxShadow(
+                color: Color.fromARGB(255, 107, 107, 107),
+                offset: Offset(0, 3),
+                blurRadius: 10,
+              ),
+            ],
           ),
           child: Row(
             children: [
@@ -48,41 +57,42 @@ class ProfileBar2 extends StatelessWidget {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              const Text(
-                                "Save life,",
-                                style: TextStyle(
-                                    color:  Color.fromARGB(255, 16, 98, 147),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500),
-                              ),
                               Text(
                                 ambulanceNo,
                                 style: const TextStyle(
-                                    color:  Color.fromARGB(255, 16, 98, 147),
-                                    fontSize: 22,
-                                    fontWeight: FontWeight.w700),
+                                    color: Colors.white,
+                                    fontSize: 26,
+                                    fontWeight: FontWeight.w500),
                               ),
                             ],
                           ),
                           Column(
                             children: [
                               Image.asset(
-                                "assets/logo_2.png",
-                                width: screenSize.width * 0.2,
+                                "assets/logo_2_full_white 1.png",
+                                width: screenSize.width * 0.16,
                               ),
                             ],
                           ),
                         ],
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+                          Text(
+                            username,
+                            style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 15,
+                                letterSpacing: 1,
+                                fontWeight: FontWeight.w400),
+                          ),
                           Text(
                             crewNo,
                             style: const TextStyle(
-                                color:  Color.fromARGB(255, 16, 98, 147),
-                                fontSize: 14,
-                                fontWeight: FontWeight.w500),
+                                color: Colors.white,
+                                fontSize: 15,
+                                fontWeight: FontWeight.w400),
                           ),
                         ],
                       ),

@@ -20,6 +20,13 @@ class ProfileTextHolder extends StatelessWidget {
         decoration: const BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.all(Radius.circular(10)),
+          boxShadow: [
+            BoxShadow(
+              color: Color.fromARGB(255, 111, 111, 111),
+              offset: Offset(0, 3),
+              blurRadius: 4,
+            ),
+          ],
         ),
         child: Stack(
           children: [
@@ -27,7 +34,8 @@ class ProfileTextHolder extends StatelessWidget {
               padding: const EdgeInsets.only(top: 10, left: 10),
               child: Text(
                 "$feildName :",
-                style: const TextStyle(color: Color.fromARGB(255, 60, 60, 60), fontSize: 14),
+                style: const TextStyle(
+                    color: Color.fromARGB(255, 60, 60, 60), fontSize: 14),
               ),
             ),
             Positioned(
@@ -36,7 +44,7 @@ class ProfileTextHolder extends StatelessWidget {
               child: Text(
                 username,
                 style: const TextStyle(
-                    color: Colors.white,
+                    color: Color.fromARGB(255, 16, 98, 147),
                     fontSize: 18,
                     fontWeight: FontWeight.w600),
               ),

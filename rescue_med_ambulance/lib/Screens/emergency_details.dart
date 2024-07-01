@@ -29,7 +29,7 @@ class _EmergencyDetailsState extends State<EmergencyDetails> {
                   Image.asset(
                     //"assets/pregnant big.png",
                     widget.dummydata2.imagePath,
-                     width: double.infinity,
+                    width: double.infinity,
                     //fit: BoxFit.cover,
                     // alignment: Alignment.topCenter,
                   ),
@@ -68,7 +68,7 @@ class _EmergencyDetailsState extends State<EmergencyDetails> {
               // crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(
-                  height: screenSize.height * 0.4,
+                  height: screenSize.height * 0.35,
                 ),
                 Expanded(
                   child: Container(
@@ -82,7 +82,10 @@ class _EmergencyDetailsState extends State<EmergencyDetails> {
                           offset: Offset(0, 5),
                         ),
                       ],
-                      color: Colors.white,
+                      image: DecorationImage(
+                        image: AssetImage("assets/backdrop_3.jpg"),
+                        fit: BoxFit.cover,
+                      ),
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(50),
                           topRight: Radius.circular(50)),

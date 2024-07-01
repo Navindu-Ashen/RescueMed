@@ -52,7 +52,7 @@ class _HospitalDetailsState extends State<HospitalDetails> {
               // crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(
-                  height: screenSize.height * 0.4,
+                  height: screenSize.height * 0.38,
                 ),
                 Expanded(
                   child: Container(
@@ -66,7 +66,11 @@ class _HospitalDetailsState extends State<HospitalDetails> {
                           offset: Offset(0, 5),
                         ),
                       ],
-                      color: Colors.white,
+                      image: DecorationImage(
+                        image: AssetImage("assets/backdrop_3.jpg"),
+                        fit: BoxFit.cover,
+                    
+                      ),
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(50),
                           topRight: Radius.circular(50)),
@@ -257,7 +261,6 @@ class _HospitalDetailsState extends State<HospitalDetails> {
                                         child: Row(
                                           mainAxisAlignment:
                                               MainAxisAlignment.center,
-                                          
                                           children: <Widget>[
                                             IconButton(
                                               onPressed: () {},

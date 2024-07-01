@@ -21,10 +21,15 @@ class _HelpPageState extends State<HelpPage> {
               child: Column(
                 children: [
                   Center(
-                    child: Image.asset(
-                      'assets/logo_2_full_white 1.png',
-                      width: screenSize.width * 0.6,
-                      height: screenSize.height * 0.3,
+                    child: Column(
+                      children: [
+                       
+                        Image.asset(
+                          'assets/7317079 1.png',
+                          width: screenSize.width * 0.7,
+                          
+                        ),
+                      ],
                     ),
                   ),
                 ],
@@ -35,19 +40,30 @@ class _HelpPageState extends State<HelpPage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  IconButton(
-                    onPressed: () => Navigator.pop(context),
-                    icon: const Icon(
-                      Icons.arrow_back_ios,
-                    ),
-                    iconSize: 30,
-                    color: Colors.white,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      IconButton(
+                        onPressed: () => Navigator.pop(context),
+                        icon: const Icon(
+                          Icons.arrow_back_ios,
+                        ),
+                        iconSize: 30,
+                        color: Colors.white,
+                      ),
+                       
+                    ],
                   ),
+                  Image.asset(
+                          'assets/logo_2_full_white 1.png',
+                          width: screenSize.width * 0.3,
+                          
+                        ),
                 ],
               ),
             ),
             Column(
-              // crossAxisAlignment: CrossAxisAlignment.start,
+              
               children: [
                 SizedBox(
                   height: screenSize.height * 0.3,
@@ -64,7 +80,10 @@ class _HelpPageState extends State<HelpPage> {
                           offset: Offset(0, 5),
                         ),
                       ],
-                      color: Colors.white,
+                      image: DecorationImage(
+                        image: AssetImage("assets/backdrop_3.jpg"),
+                        fit: BoxFit.cover,
+                      ),
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(50),
                           topRight: Radius.circular(50)),
@@ -333,12 +352,7 @@ class _HelpPageState extends State<HelpPage> {
                                                         "0223-455653",
                                                         style: TextStyle(
                                                             fontSize: 15,
-                                                            color:
-                                                                Color.fromARGB(
-                                                                    255,
-                                                                    16,
-                                                                    98,
-                                                                    147),
+                                                            color: Colors.black,
                                                             fontWeight:
                                                                 FontWeight.w500,
                                                             letterSpacing: 1),
