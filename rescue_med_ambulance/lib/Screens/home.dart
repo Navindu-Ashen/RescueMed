@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rescue_med_ambulance/Screens/help.dart';
 import 'package:rescue_med_ambulance/Screens/profile.dart';
 import 'package:rescue_med_ambulance/Screens/reports.dart';
 import 'package:rescue_med_ambulance/widgets/Home/counter.dart';
@@ -78,13 +79,7 @@ class _HomePageState extends State<HomePage> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => const Profile(
-                                    username: '',
-                                    contactNumber: '',
-                                    vehiclenumber: '',
-                                    ambulanceid: '',
-                                    membercount: '',
-                                  ),
+                                  builder: (context) => const HelpPage()
                                 ),
                               );
                             },

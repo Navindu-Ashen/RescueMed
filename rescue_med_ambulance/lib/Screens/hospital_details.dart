@@ -240,9 +240,9 @@ class _HospitalDetailsState extends State<HospitalDetails> {
                                           SizedBox(
                                             height: screenSize.height * 0.015,
                                           ),
-                                          const Text(
-                                            "Nawaloka Hospitals PLC understands the dynamic and urgent nature of the healthcare sector, which has evolved over the decades from a reactive to a proactive service. In this rapidly changing environment, Nawaloka Hospital medical and support teams have identified five strategic areas to focus and invest time and resources.",
-                                            style: TextStyle(
+                                          Text(
+                                            widget.dummydata.clinics,
+                                            style: const TextStyle(
                                                 fontSize: 15,
                                                 color: Colors.black,
                                                 fontWeight: FontWeight.w400,
@@ -257,6 +257,7 @@ class _HospitalDetailsState extends State<HospitalDetails> {
                                         child: Row(
                                           mainAxisAlignment:
                                               MainAxisAlignment.center,
+                                          
                                           children: <Widget>[
                                             IconButton(
                                               onPressed: () {},
@@ -266,8 +267,6 @@ class _HospitalDetailsState extends State<HospitalDetails> {
                                               color: const Color.fromARGB(
                                                   255, 16, 98, 147),
                                             ),
-                                            // SizedBox(
-                                            //     width: screenSize.width * 0.01),
                                             const Text(
                                               "Visit Page",
                                               style: TextStyle(

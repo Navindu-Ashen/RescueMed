@@ -115,7 +115,7 @@ class _EmergencyDetailsState extends State<EmergencyDetails> {
                                               fontSize: 25,
                                               color: Color.fromARGB(
                                                   255, 16, 98, 147),
-                                              fontWeight: FontWeight.w500,
+                                              fontWeight: FontWeight.w400,
                                               letterSpacing: 1),
                                         ),
                                         Text(
@@ -152,7 +152,7 @@ class _EmergencyDetailsState extends State<EmergencyDetails> {
                                         Text(
                                           widget.dummydata2.about,
                                           style: const TextStyle(
-                                              fontSize: 15,
+                                              fontSize: 18,
                                               color: Colors.black,
                                               fontWeight: FontWeight.w400,
                                               letterSpacing: 1),
@@ -167,7 +167,7 @@ class _EmergencyDetailsState extends State<EmergencyDetails> {
                                             const Text(
                                               "Immediately after the baby comes,follow these steps:",
                                               style: TextStyle(
-                                                  fontSize: 21,
+                                                  fontSize: 22,
                                                   color: Color.fromARGB(
                                                       255, 16, 98, 147),
                                                   fontWeight: FontWeight.w500,
@@ -177,9 +177,9 @@ class _EmergencyDetailsState extends State<EmergencyDetails> {
                                               height: screenSize.height * 0.015,
                                             ),
                                             Text(
-                                              widget.dummydata2.about,
+                                              widget.dummydata2.steps,
                                               style: const TextStyle(
-                                                  fontSize: 15,
+                                                  fontSize: 18,
                                                   color: Colors.black,
                                                   fontWeight: FontWeight.w400,
                                                   letterSpacing: 1),
@@ -189,33 +189,32 @@ class _EmergencyDetailsState extends State<EmergencyDetails> {
                                         SizedBox(
                                           height: screenSize.height * 0.025,
                                         ),
-                                        GestureDetector(
-                                          child: Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: <Widget>[
-                                              IconButton(
-                                                onPressed: () {},
-                                                icon: const Icon(
-                                                    Icons.search_rounded),
-                                                iconSize: 20,
-                                                color: const Color.fromARGB(
-                                                    255, 16, 98, 147),
-                                              ),
-                                              // SizedBox(
-                                              //     width: screenSize.width * 0.01),
-                                              const Text(
-                                                "Visit Page",
-                                                style: TextStyle(
-                                                  fontSize: 15,
-                                                  color: Color.fromARGB(
-                                                      255, 16, 98, 147),
-                                                  fontWeight: FontWeight.w600,
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
+                                        // GestureDetector(
+                                        //   child: Row(
+                                        //     mainAxisAlignment:
+                                        //         MainAxisAlignment.center,
+                                        //     children: <Widget>[
+                                        //       IconButton(
+                                        //         onPressed: () {},
+                                        //         icon: const Icon(
+                                        //             Icons.search_rounded),
+                                        //         iconSize: 20,
+                                        //         color: const Color.fromARGB(
+                                        //             255, 16, 98, 147),
+                                        //       ),
+
+                                        //       const Text(
+                                        //         "Visit Page",
+                                        //         style: TextStyle(
+                                        //           fontSize: 15,
+                                        //           color: Color.fromARGB(
+                                        //               255, 16, 98, 147),
+                                        //           fontWeight: FontWeight.w600,
+                                        //         ),
+                                        //       ),
+                                        //     ],
+                                        //   ),
+                                        // ),
                                       ],
                                     ),
                                   ),

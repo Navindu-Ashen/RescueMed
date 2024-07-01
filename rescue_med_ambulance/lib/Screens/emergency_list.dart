@@ -101,7 +101,7 @@ class _EmergencyListState extends State<EmergencyList> {
                                     child: Container(
                                       margin: const EdgeInsets.fromLTRB(
                                           15, 10, 15, 0),
-                                      height: screenSize.height * 0.175,
+                                      height: screenSize.height * 0.18,
                                       width: screenSize.width * 0.92,
                                       decoration: const BoxDecoration(
                                         color: Colors.white,
@@ -193,7 +193,9 @@ class _EmergencyListState extends State<EmergencyList> {
                                                                       TextOverflow
                                                                           .ellipsis,
                                                                   maxLines: 5,
+                                                                  textAlign: TextAlign.start,
                                                                 ),
+                                                                
                                                               )
                                                             ],
                                                           ),

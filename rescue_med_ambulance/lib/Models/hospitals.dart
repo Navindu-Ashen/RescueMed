@@ -7,6 +7,7 @@ class Hospital {
   final String about;
   final String directions;
   final String url;
+  final String clinics;
 
   Hospital({
     required this.name,
@@ -17,5 +18,6 @@ class Hospital {
     required this.about,
     required this.directions,
     required this.url,
+    required this.clinics,
   });
 }
